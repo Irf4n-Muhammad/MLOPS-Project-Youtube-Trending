@@ -1,11 +1,13 @@
 # MLOPS Project / Youtube Spotify Trending
 
-## 1.Problem description
+## 1. Problem description
 YouTube and Spotify have been recognized as the most frequently visited platforms globally, serving as primary channels through which individuals not only amass wealth but also cultivate widespread fame. A "trending" status on these platforms is often viewed as the pinnacle of achievement for content creators, indicating that their content has gained significant popularity within a certain time frame. To achieve this status, it is crucial to understand the variables that can influence this outcome. This understanding can subsequently guide a systematic plan for trending.
 
 In this advanced machine learning model, we intend to examine two principal factors: the number of viewers and licensing agreements. The choice of these two variables is not arbitrary. The number of viewers directly signifies the popularity of the content, while licensing deals could potentially broaden the reach of the content, hence leading to increased viewership and likelihood of trending.
 
 We hypothesize that licensed content may generate a wider audience, which in turn, influences the trending status of the content. However, it is important to note that these factors are just a fraction of a larger set of parameters that could impact a content's trendiness. These other factors might include content quality, content type, publication time, among others. Nevertheless, for the scope of this project, our primary focus is to build a sustainable machine learning model, and hence, we are limiting our study to these two factors.
+
+<img src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/f135a391-46fb-45a6-bc10-368d4f87b07b" alt="your image description" width="500" height="300">
 
 It is imperative to highlight the need for regular maintenance and testing of this machine learning model. This is crucial to ensure its robustness and reliability, especially given that user behavior and consumption patterns on platforms like YouTube and Spotify are dynamic and can change rapidly. Regular monitoring and testing will allow us to identify any anomalies, adapt to pattern shifts, and ensure that the predictive model remains reliable and trustworthy.
 
@@ -84,9 +86,9 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
    mlflow ui --backend-store-uri 'db_type:///path_to_db'
    ```
 3. Copy the localhost link
-  ```bash
+   ```bash
    localhost:5000
-  ```
+   ```
 4. Open the new terminal and running jupyter notebook on the mlflow conda
 5. In the youtube-trending-prediction.ipynb has explained everything about how it work and connect to the Mlflow
 6. In the Mlflow, we can see the metrics, log, artifact and the diagram of our result
@@ -96,7 +98,40 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 2. The explanation how it works is explained in youtube-trending-prediction.ipynb
 
 
-Workflow orchestration
+## 4. Workflow Orchestration
+In this section, we will use prefect as our orchestration tool. We will deploy and run our model in prefect.
+
+1. Create the anaconda for prefect
+   ```bash
+   conda create -n <name> bash
+   conda activate <name>
+   ```
+2. Run the prefect server
+   ```bash
+   prefect server start
+   ```
+   Copy the localhost link
+   ```bash
+   localhost:8080
+   ```
+3. Initiliaze the prefect project
+   ```bash
+   prefect project init
+   ```
+   It will generate the file (deployment.yaml and prefect.yaml)
+4. Create workpool in the prefect UI
+5. Deploy the model into the prefect
+   ```bash
+   prefect deploy <path to the model>:main_flow -n <model_name> -p <workpool_name>
+   ```
+6. Running the worker network
+   ```bash
+   prefect worker start
+   ```
+7. Open the prefect UI and find the flows. Click quick run
+8. You will see the data generated in our terminal
+   
+
 
 Model deployment
 
