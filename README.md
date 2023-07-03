@@ -101,12 +101,16 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 ## 4. Workflow Orchestration
 In this section, we will use prefect as our orchestration tool. We will deploy and run our model in prefect.
 
-1. Create the anaconda for prefect
+1. Script the file from jupyter notebook
+   ```bash
+   jupyter nbconvert --to script <name.ipynb>
+   ```
+3. Create the anaconda for prefect
    ```bash
    conda create -n <name> bash
    conda activate <name>
    ```
-2. Run the prefect server
+4. Run the prefect server
    ```bash
    prefect server start
    ```
@@ -114,22 +118,22 @@ In this section, we will use prefect as our orchestration tool. We will deploy a
    ```bash
    localhost:8080
    ```
-3. Initiliaze the prefect project
+5. Initiliaze the prefect project
    ```bash
    prefect project init
    ```
    It will generate the file (deployment.yaml and prefect.yaml)
-4. Create workpool in the prefect UI
-5. Deploy the model into the prefect
+6. Create workpool in the prefect UI
+7. Deploy the model into the prefect
    ```bash
    prefect deploy <path to the model>:main_flow -n <model_name> -p <workpool_name>
    ```
-6. Running the worker network
+8. Running the worker network
    ```bash
    prefect worker start
    ```
-7. Open the prefect UI and find the flows. Click quick run
-8. You will see the data generated in our terminal
+9. Open the prefect UI and find the flows. Click quick run
+10. You will see the data generated in our terminal
    
 
 
