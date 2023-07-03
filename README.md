@@ -61,12 +61,26 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
     
     <img width="845" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/b8789f57-4b5f-4325-b592-b85c0fbda9ce">
 
-19. 
+19. Your database is ready
 
+### - Create EC2 Virtual Machine:
+1. Open EC2
+2. Create new instances
+3. Choose Amazon and instances type
+4. Create the new key pair and save that on your computer
+5. Create EC2
+6. Then, click the instances ID and click connect and click ssh client
+7. Copy the long SSH link and we will use that to running our machine
+8. Create the Host configuration that aim to our instances
+9. Running the VM and download the needed package with requirements.txt file
 
-
-
-Experiment tracking and model registry
+## 3. Experiment Tracking and Model Registry
+### 3.1 Mlflow (Experiment Tracking):
+1. Create conda that specifically for mlflow
+2. Running the mlflow ui command :
+   ```bash
+   mlflow ui --backend-store-uri 'db_type:///path_to_db'
+   ```
 
 Workflow orchestration
 
