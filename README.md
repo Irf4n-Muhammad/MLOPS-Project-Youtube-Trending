@@ -45,18 +45,23 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 6. Click auto generate password
 7. Leave the instance configuration, Storage, Connectivity if you just need free tier
 8. Click additional configuration to make the database:
+   
    <img width="566" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/eb5efac0-9cc4-4762-83a2-382ba2ad9c98">
-9. Create the database and it is ready
-10. View the credentials setting, so you will find the master username and password. Please copy that:
+10. Create the database and it is ready
+11. View the credentials setting, so you will find the master username and password. Please copy that:
+    
     <img width="913" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/476ae47a-bf59-4c3c-b02a-67573718cbc5">
-12. Go to the security section:
+13. Go to the security section:
+    
     <img width="183" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/1a61a9df-ebc8-494f-b5ee-ebe6703b405e">
-14. Edit the inbound rules:
+15. Edit the inbound rules:
+    
     <img width="707" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/da8da7fa-7767-4469-97af-65e005fe4415">
-16. Set the inbound rules:
+17. Set the inbound rules:
+    
     <img width="845" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/b8789f57-4b5f-4325-b592-b85c0fbda9ce">
 
-18. 
+19. 
 
 
 
