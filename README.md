@@ -15,11 +15,13 @@ Further, to manage the sustainability of our machine learning model, we will inc
 ## 2. Cloud
 For this project, we will use AWS cloud to intergrate our model for storing and transforming the model. But before that, we need to set up the terraform to set up the setting for our AWS Cloud, but this section will assume that we have finished using terraform.
 
-### Create the Root:
+### 2.1 Use IAM
+
+### 2.1.1 Create the Root:
 1. Use your gmail to create the root account
 2. You gonna use this as main account that will be integrated to many user account
 
-### Create the User:
+### 2.1.2 Create the User:
 1. Open the IAM features and click user
 2. Create the new user
 3. Make your username
@@ -29,18 +31,18 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 7. Logout from root account and connect to the user account using AccountID and password
 8. Now, your user account was set up
 
-### - Using AWS S3 (Storing Model)
+### 2.2 Using AWS S3 (Storing Model)
 1. Open the s3 features
 2. Create the new bucket
 3. Write your s3 bucket name. Make it authentic which show what this bucket related to
 4. Choose the timezone that close to your livinghood.
 5. Create the bucket and your bucket is ready
 
-### - Create the RDS Database (Storing Model)
+### 2.3 Create the RDS Database (Storing Model)
 1. Open the RDS features
 2. Create the databse
 3. Choose PostgreSQL and choose free tier
-4. Mkae your DB name on 'DB Instance Identifier'
+4. Make your DB name on 'DB Instance Identifier'
 5. Write master username (I write mlflow)
 6. Click auto generate password
 7. Leave the instance configuration, Storage, Connectivity if you just need free tier
@@ -63,7 +65,7 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 
 19. Your database is ready
 
-### - Create EC2 Virtual Machine:
+### 2.4 Create EC2 Virtual Machine:
 1. Open EC2
 2. Create new instances
 3. Choose Amazon and instances type
@@ -81,6 +83,18 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
    ```bash
    mlflow ui --backend-store-uri 'db_type:///path_to_db'
    ```
+3. Copy the localhost link
+  ```bash
+   localhost:5000
+  ```
+4. Open the new terminal and running jupyter notebook on the mlflow conda
+5. In the youtube-trending-prediction.ipynb has explained everything about how it work and connect to the Mlflow
+6. In the Mlflow, we can see the metrics, log, artifact and the diagram of our result
+
+### 3.2 Model Registry:
+1. We can control and manage our model into certain condition (Staging, Production, and Archieve
+2. The explanation how it works is explained in youtube-trending-prediction.ipynb
+
 
 Workflow orchestration
 
