@@ -134,10 +134,12 @@ In this section, we will use prefect as our orchestration tool. We will deploy a
    ```
 9. Open the prefect UI and find the flows. Click quick run
 10. You will see the data generated in our terminal
-   
+    
+    <img width="814" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/e252d515-d6a8-4fbe-b5ea-8c16a946a675">
 
 
-Model deployment
+## 5. Model deployment
+
 
 Model monitoring
 
