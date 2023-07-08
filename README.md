@@ -194,6 +194,16 @@ def predict_endpoint():
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=9696)
 ```
+7. Running the server
+```bash
+pipenv shell
+export RUN_ID=<Your ID>
+python predict.py
+```
+8. Run the result in the different terminal
+```bash
+test.py
+```
 
 
 Model monitoring
