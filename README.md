@@ -202,11 +202,11 @@ python predict.py
 ```
 8. Run the result in the different terminal
 ```bash
-test.py
+python test.py
 ```
 
+## 6.Model monitoring
 
-Model monitoring
 
 Reproducibility
 
