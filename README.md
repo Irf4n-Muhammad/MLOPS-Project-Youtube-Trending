@@ -13,6 +13,10 @@ It is imperative to highlight the need for regular maintenance and testing of th
 
 Further, to manage the sustainability of our machine learning model, we will incorporate practices such as model validation, updating the training data, and employing a robust monitoring system to track the model's performance over time. This sustainable machine learning environment will enable the model to remain sensitive to emerging trends, thereby allowing it to maintain its accuracy in predicting trending status based on viewer numbers and licensing agreements. By this method, we are not just establishing a one-time solution but building a resilient, evolving model that can adapt to the ever-changing digital landscape.
 
+Dataset source:
+
+https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube
+
 
 ## 2. Cloud
 For this project, we will use AWS cloud to intergrate our model for storing and transforming the model. But before that, we need to set up the terraform to set up the setting for our AWS Cloud, but this section will assume that we have finished using terraform.
