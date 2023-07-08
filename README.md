@@ -17,6 +17,11 @@ Dataset source:
 
 https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube
 
+Pipeline flow:
+
+<img width="900" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/4af3dc84-a44b-4dc4-b073-c7c6c8cd8bc3">
+
+
 
 ## 2. Cloud
 For this project, we will use AWS cloud to intergrate our model for storing and transforming the model. But before that, we need to set up the terraform to set up the setting for our AWS Cloud, but this section will assume that we have finished using terraform.
