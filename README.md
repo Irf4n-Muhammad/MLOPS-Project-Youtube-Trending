@@ -139,6 +139,61 @@ In this section, we will use prefect as our orchestration tool. We will deploy a
 
 
 ## 5. Model deployment
+In this section, we will deploy our model from mlflow through web service and connect to the AWS S3 as the server so we can independently running our model without relying on our local server which most likely will shutdown and affect our running model. 
+
+1. Firstly we try to edit our last python file to be only running the model intead training the model
+2. You can see on the 'web-service-deployment' for the full python file.
+3. There are several features that have to be put on the python file to be connected to the AWS S3
+
+```python
+MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
+RUN_ID = os.getenv('RUN_ID')
+# export RUN_ID='0baad4b2afeb41b48e1469722bd12fda'
+
+mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+logged_model = f's3://mlflow-artifacts-remote-zoomcamp/1/{RUN_ID}/artifacts/model'
+model = mlflow.pyfunc.load_model(logged_model)
+```
+
+4. Some function that we will use to run our model which we can edit and will not affect the current model
+```python
+def prepare_features(ride):
+    features = {}
+    features['Licensed'] = ride['Licensed']
+    features['Views'] = ride['Views']
+    features['Likes'] = ride['Likes']
+    
+    return features
+
+
+def predict(features):
+    preds = model.predict(features)
+    pred_value = float(preds[0])
+    return pred_value if pred_value > 1 else 1
+```
+5. The main function to arrange the sequence of used function
+```python
+app = Flask('trending-prediction')
+
+@app.route('/predict', methods=['POST'])
+def predict_endpoint():
+    ride = request.get_json()
+    
+    features = prepare_features(ride)
+    pred = predict(features)
+    
+    result = {
+        'Trending Rank': pred,
+        'model_version': RUN_ID
+    }
+    
+    return jsonify(result)
+```
+6. Connect to the port:
+```python
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=9696)
+```
 
 
 Model monitoring
