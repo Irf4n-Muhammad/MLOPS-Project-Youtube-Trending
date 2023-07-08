@@ -206,6 +206,21 @@ python test.py
 ```
 
 ## 6.Model monitoring
+In monitoring, we will check the quality of our model using several indicators. We will leverage some tools such as jupyter notebook, grafana, and adminer. We will produce the dummy metrics that we will use to test our model.
+
+1. Set up the environment by creating the conda env and downloading the requirements package, also create the docker-compose file and build it
+2. Open the jupyter notebook and try to create the documentation, for the full process, read the file by yourself
+3. Create the dummy python file to produce and send the dummy metrics
+4. See the updated data in the adminer by connecting to the localhost:
+   ```bash
+   localhost:8080
+   ```
+5. You can create the visualization diagram using grafana
+   ```bash
+   localhost:3000
+   ```
+6. Create the dummy quality test python following the same idea as the previous one to create the visualization diagrams
+
 
 
 Reproducibility
