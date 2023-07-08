@@ -98,7 +98,7 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 6. In the Mlflow, we can see the metrics, log, artifact and the diagram of our result
 
 ### 3.2 Model Registry:
-1. We can control and manage our model into certain condition (Staging, Production, and Archieve
+1. We can control and manage our model into certain condition (Staging, Production, and Archieve)
 2. The explanation how it works is explained in youtube-trending-prediction.ipynb
 
 
