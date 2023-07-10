@@ -1,0 +1,60 @@
+# File for configuring project / deployment build, push and pull steps
+
+# Generic metadata about this project
+name: Train Model and Experiment Tracking
+prefect-version: 2.10.8
+
+# build section allows you to manage and build docker images
+build: null
+
+# push section allows you to manage if and how this project is uploaded to remote locations
+push: null
+
+# pull section allows you to provide instructions for cloning this project in remote locations
+pull:
+- prefect.projects.steps.git_clone_project:
+    repository: https://github.com/Irf4n-Muhammad/MLOPS-Project-911_Emergency_Call.git
+    branch: main
+    access_token: null
+
+deployments:
+- name: null
+  version: null
+  tags: []
+  description: null
+  schedule: {}
+  flow_name: null
+  entrypoint: null
+  parameters: {}
+  work_pool:
+    name: null
+    work_queue_name: null
+    job_variables: {}
+
+deployments:
+- name: null
+  version: null
+  tags: []
+  description: null
+  schedule: {}
+  flow_name: null
+  entrypoint: null
+  parameters: {}
+  work_pool:
+    name: null
+    work_queue_name: null
+    job_variables: {}
+
+deployments:
+- name: null
+  version: null
+  tags: []
+  description: null
+  schedule: {}
+  flow_name: null
+  entrypoint: null
+  parameters: {}
+  work_pool:
+    name: null
+    work_queue_name: null
+    job_variables: {}
