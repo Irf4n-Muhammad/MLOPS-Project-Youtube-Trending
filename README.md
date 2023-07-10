@@ -131,7 +131,7 @@ In this section, we will use Prefect as our orchestration tool. We will deploy a
    ```bash
    prefect project init
    ```
-   It will generate the file ([deployment.yaml](http://github.com) and [prefect.yaml](http://github.com))
+   It will generate the file ([deployment.yaml](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/workflow_orchestration/deployment.yaml) and [prefect.yaml](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/workflow_orchestration/prefect.yaml))
 6. Create workpool in the Prefect UI
 7. Deploy the model into the Prefect
    ```bash
@@ -151,7 +151,7 @@ In this section, we will use Prefect as our orchestration tool. We will deploy a
 In this section, we will deploy our model from mlflow through web service and connect to the AWS S3 as the server so we can independently running our model without relying on our local server which most likely will shutdown and affect our running model. 
 
 1. Firstly we try to edit our last python file to be only running the model intead training the model
-2. You can see on the 'web-service-deployment' for the full python file.
+2. You can see on the [web-service-deployment](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/tree/main/web-service-deployment) for the full python file.
 3. There are several features that have to be put on the python file to be connected to the AWS S3
 
 ```python
