@@ -98,17 +98,17 @@ For this project, we will use AWS Cloud to integrate our model for storing and t
    ```bash
    localhost:5000
    ```
-4. Open the new terminal and running jupyter notebook on the mlflow conda
-5. In the [youtube-trending-prediction.ipynb](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/experiment_tracking/youtube-trending-prediction.ipynb) has explained everything about how it work and connect to the Mlflow
-6. In the Mlflow, we can see the metrics, log, artifact and the diagram of our result
+4. Open the new terminal and run jupyter notebook on the mlflow conda
+5. In the [youtube-trending-prediction.ipynb](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/experiment_tracking/youtube-trending-prediction.ipynb) has explained everything about how it works and connect to the Mlflow
+6. In the Mlflow, we can see the metrics, log, artifact and diagram of our result
 
 ### 3.2 Model Registry:
-1. We can control and manage our model into certain condition (Staging, Production, and Archieve)
-2. The explanation how it works is explained in youtube-trending-prediction.ipynb
+1. We can control and manage our model in certain conditions (Staging, Production, and Archive)
+2. The explanation of how it works is explained in youtube-trending-prediction.ipynb
 
 
 ## 4. Workflow Orchestration
-In this section, we will use prefect as our orchestration tool. We will deploy and run our model in prefect.
+In this section, we will use Prefect as our orchestration tool. We will deploy and run our model in Prefect.
 
 1. Script the file from jupyter notebook
    ```bash
@@ -131,9 +131,9 @@ In this section, we will use prefect as our orchestration tool. We will deploy a
    ```bash
    prefect project init
    ```
-   It will generate the file (deployment.yaml and prefect.yaml)
-6. Create workpool in the prefect UI
-7. Deploy the model into the prefect
+   It will generate the file ([deployment.yaml](http://github.com) and [prefect.yaml](http://github.com))
+6. Create workpool in the Prefect UI
+7. Deploy the model into the Prefect
    ```bash
    prefect deploy <path to the model>:main_flow -n <model_name> -p <workpool_name>
    ```
@@ -141,7 +141,7 @@ In this section, we will use prefect as our orchestration tool. We will deploy a
    ```bash
    prefect worker start
    ```
-9. Open the prefect UI and find the flows. Click quick run
+9. Open the Prefect UI and find the flows. Click quick run
 10. You will see the data generated in our terminal
     
     <img width="814" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/e252d515-d6a8-4fbe-b5ea-8c16a946a675">
