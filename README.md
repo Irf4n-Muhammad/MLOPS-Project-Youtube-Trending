@@ -215,6 +215,8 @@ python test.py
 ```
 
 ## 6.Model monitoring
+
+### 6.1 Dummy Monitoring and Data Quality Monitoring
 In monitoring, we will check the quality of our model using several indicators. We will leverage some tools such as jupyter notebook, grafana, and adminer. We will produce the dummy metrics that we will use to test our model.
 
 1. Set up the environment by creating the conda env and downloading the requirements package, also create the docker-compose file and build it
@@ -230,16 +232,29 @@ In monitoring, we will check the quality of our model using several indicators. 
    ```bash
    localhost:3000
    ```
-7. Create the dummy quality test python following the same idea as the previous one to create the visualization diagrams
+7. Create the dummy quality test Python following the same idea as the previous one to create the visualization diagrams
+8. Make sure to save your Grafana dashboard so it will not disappear after you cut the connection off. 
+
+### 6.2 Test Suites and Reports
+This method will show us the report in the comfy model which we can read it clearly and neatly. You can easily check several indicator that will assess the quality of our model.
+
+<img width="819" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/35d4ad1b-0f19-440a-950e-fe4a389287f7">
+
+We can also generate the JSON file data and retrieve the needed information by aiming for the right location in JSON file.
+
+<img width="828" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/a1ad86ef-9eb0-4519-8cba-6985c8051c2b">
 
 
 
-Reproducibility
+## 8. Best practices
 
-Best practices
- There are unit tests (1 point)
- There is an integration test (1 point)
- Linter and/or code formatter are used (1 point)
- There's a Makefile (1 point)
- There are pre-commit hooks (1 point)
- There's a CI/CD pipeline (2 points)
+- [x] There are unit tests (1 point)
+- [x] There is an integration test (1 point)
+- [x] Linter and/or code formatter are used (1 point)
+- [x] There's a Makefile (1 point)
+- [x] There are pre-commit hooks (1 point)
+- [x] There's a CI/CD pipeline (2 points)
+
+### 8.1 Unit Tests
+So we gonna test our function in running model file by using the pytest and we will see if the result is as expected
+
