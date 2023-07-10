@@ -3,9 +3,9 @@
 ## 1. Problem description
 YouTube and Spotify have been recognized as the most frequently visited platforms globally, serving as primary channels through which individuals not only amass wealth but also cultivate widespread fame. A "trending" status on these platforms is often viewed as the pinnacle of achievement for content creators, indicating that their content has gained significant popularity within a certain time frame. To achieve this status, it is crucial to understand the variables that can influence this outcome. This understanding can subsequently guide a systematic plan for trending.
 
-In this advanced machine learning model, we intend to examine two principal factors: the number of viewers and licensing agreements. The choice of these two variables is not arbitrary. The number of viewers directly signifies the popularity of the content, while licensing deals could potentially broaden the reach of the content, hence leading to increased viewership and likelihood of trending.
+In this advanced machine learning model, we intend to examine two principal factors: the number of viewers and licensing agreements. The choice of these two variables is not arbitrary. The number of viewers directly signifies the popularity of the content, while licensing deals could potentially broaden the reach of the content, hence leading to increased viewership and the likelihood of trending.
 
-We hypothesize that licensed content may generate a wider audience, which in turn, influences the trending status of the content. However, it is important to note that these factors are just a fraction of a larger set of parameters that could impact a content's trendiness. These other factors might include content quality, content type, publication time, among others. Nevertheless, for the scope of this project, our primary focus is to build a sustainable machine learning model, and hence, we are limiting our study to these two factors.
+We hypothesize that licensed content may generate a wider audience, which in turn, influences the trending status of the content. However, it is important to note that these factors are just a fraction of a larger set of parameters that could impact a content's trendiness. These other factors might include content quality, content type, and publication time, among others. Nevertheless, for the scope of this project, our primary focus is to build a sustainable machine learning model, and hence, we are limiting our study to these two factors.
 
 <img src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/f135a391-46fb-45a6-bc10-368d4f87b07b" alt="your image description" width="500" height="300">
 
@@ -24,7 +24,7 @@ Pipeline flow:
 
 
 ## 2. Cloud
-For this project, we will use AWS cloud to intergrate our model for storing and transforming the model. But before that, we need to set up the terraform to set up the setting for our AWS Cloud, but this section will assume that we have finished using terraform.
+For this project, we will use AWS Cloud to integrate our model for storing and transforming the model. But before that, we need to set up the terraform to set up the setting for our AWS Cloud, but this section will assume that we have finished using Terraform.
 
 ### 2.1 Use IAM
 
@@ -36,27 +36,27 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 1. Open the IAM features and click user
 2. Create the new user
 3. Make your username
-4. Create new group and click the policy that we need (AWSS3FullService, AdministratorAccess)
+4. Create a new group and click the policy that we need (AWSS3FullService, AdministratorAccess)
 5. Create the user
-6. You will find the AWS key and also the AWS secret key. Don't forget to copy your AWS secret key and your key because it will be important for aws configuration. Also, download the csv file.
-7. Logout from root account and connect to the user account using AccountID and password
+6. You will find the AWS key and also the AWS secret key. Don't forget to copy your AWS secret key and your key because it will be important for aws configuration. Also, download the CSV file.
+7. Logout from the root account and connect to the user account using AccountID and password
 8. Now, your user account was set up
 
 ### 2.2 Using AWS S3 (Storing Model)
 1. Open the s3 features
 2. Create the new bucket
-3. Write your s3 bucket name. Make it authentic which show what this bucket related to
-4. Choose the timezone that close to your livinghood.
+3. Write your s3 bucket name. Make it authentic which shows what this bucket related to
+4. Choose the timezone that is close to your living hood.
 5. Create the bucket and your bucket is ready
 
 ### 2.3 Create the RDS Database (Storing Model)
 1. Open the RDS features
-2. Create the databse
-3. Choose PostgreSQL and choose free tier
-4. Make your DB name on 'DB Instance Identifier'
+2. Create the database
+3. Choose PostgreSQL and choose the free tier
+4. Make your DB name on 'DB Instance Identifier
 5. Write master username (I write mlflow)
-6. Click auto generate password
-7. Leave the instance configuration, Storage, Connectivity if you just need free tier
+6. Click auto-generate password
+7. Leave the instance configuration, Storage, and Connectivity if you just need free tier
 8. Click additional configuration to make the database:
    
    <img width="566" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/eb5efac0-9cc4-4762-83a2-382ba2ad9c98">
@@ -83,13 +83,13 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
 4. Create the new key pair and save that on your computer
 5. Create EC2
 6. Then, click the instances ID and click connect and click ssh client
-7. Copy the long SSH link and we will use that to running our machine
-8. Create the Host configuration that aim to our instances
-9. Running the VM and download the needed package with requirements.txt file
+7. Copy the long SSH link and we will use that to run our machine
+8. Create the Host configuration that aims to our instances
+9. Running the VM and download the needed package with the requirements.txt file
 
 ## 3. Experiment Tracking and Model Registry
 ### 3.1 Mlflow (Experiment Tracking):
-1. Create conda that specifically for mlflow
+1. Create conda that is specifically for mlflow
 2. Running the mlflow ui command :
    ```bash
    mlflow ui --backend-store-uri 'db_type:///path_to_db'
@@ -99,7 +99,7 @@ For this project, we will use AWS cloud to intergrate our model for storing and 
    localhost:5000
    ```
 4. Open the new terminal and running jupyter notebook on the mlflow conda
-5. In the youtube-trending-prediction.ipynb has explained everything about how it work and connect to the Mlflow
+5. In the [youtube-trending-prediction.ipynb](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/experiment_tracking/youtube-trending-prediction.ipynb) has explained everything about how it work and connect to the Mlflow
 6. In the Mlflow, we can see the metrics, log, artifact and the diagram of our result
 
 ### 3.2 Model Registry:
