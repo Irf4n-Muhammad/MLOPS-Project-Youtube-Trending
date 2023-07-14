@@ -19,7 +19,7 @@ https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube
 
 Pipeline flow:
 
-<img width="900" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/4af3dc84-a44b-4dc4-b073-c7c6c8cd8bc3">
+
 
 
 
@@ -148,6 +148,7 @@ In this section, we will use Prefect as our orchestration tool. We will deploy a
 
 
 ## 5. Model deployment
+### 5.2 Web-Service Deployment:
 In this section, we will deploy our model from mlflow through web service and connect to the AWS S3 as the server so we can independently running our model without relying on our local server which most likely will shutdown and affect our running model. 
 
 1. Firstly we try to edit our last python file to be only running the model intead training the model
@@ -213,6 +214,9 @@ python predict.py
 ```bash
 python test.py
 ```
+### Streaming Deployment:
+Streaming will send the real-time data that can be extracted at the same time, so it can be processed directly and can be used to develop our machine learning model. This idea will use kinesis to handle streaming data and lambda to process and transform the data. Then, we will connect it with web-service deployment in the workflow.
+
 
 ## 6.Model monitoring
 
