@@ -214,8 +214,42 @@ python predict.py
 ```bash
 python test.py
 ```
-### Streaming Deployment:
+### 5.2 Streaming Deployment:
 Streaming will send the real-time data that can be extracted at the same time, so it can be processed directly and can be used to develop our machine learning model. This idea will use kinesis to handle streaming data and lambda to process and transform the data. Then, we will connect it with web-service deployment in the workflow.
+
+1. Firstly, we have to set up the lambda and the kinesis in our system by following the instruction in the amazon website
+2. Create the role to allow the lambda permission ( name: lambda-kinesis-role ) and add permission ( AWSLambdaKinesisExectuionRole )
+3. Open the function (in lambda section) and create new function and set the lambda role that'has been created
+4. Afterwards, we can move our function from predict.py into the lambda function and we can make it to be simple for testing and it will be developed along the time.
+5. Also click the test button and fill in the event JSON that will be the input for testing
+6. After it's running, the log file will come out and we can see the success message or error
+7. Create the data stream, so we can run it on the terminal
+8. Create trigger near to kinesis and choose kinesis as our trigger configuration
+9. AFter the trigger is enabled, then we can run this command in the terminal:
+    ```bash
+    KINESIS_STREAM_INPUT=trending_events
+      aws kinesis put-record \
+    --stream-name ${KINESIS_STREAM_INPUT} \
+    --partition-key 1 \
+    --data "Hello, this is a test."
+    ```
+10.  Then, we can check the log cloudwatch configuration to see the streaming data
+11.  We develop it again and we can add this command in the terminal
+    ```bash
+    aws kinesis put-record \
+    --stream-name ${KINESIS_STREAM_INPUT} \
+    --partition-key 1 \
+    --data '{
+    "ride" : {
+    'Likes': 50000000,
+    'Views': 70000000,
+    'Licensed': 'Yes',
+    },
+    "ride_id": 123 
+}'
+    ```
+
+
 
 
 ## 6.Model monitoring
