@@ -235,6 +235,7 @@ Streaming will send the real-time data that can be extracted at the same time, s
     ```
 10.  Then, we can check the log cloudwatch configuration to see the streaming data
 11.  We develop it again and we can add this command in the terminal
+    
     ```bash
     aws kinesis put-record \
     --stream-name ${KINESIS_STREAM_INPUT} \
@@ -246,11 +247,53 @@ Streaming will send the real-time data that can be extracted at the same time, s
     'Licensed': 'Yes',
     },
     "ride_id": 123 
-}'
+    }'
     ```
-
-
-
+12. If we open the cloudwatch, we will find the records of our streaming data in json form
+    ```json
+      {
+          "Records": [
+      {
+                  "kinesis": {
+                      "kinesisSchemaVersion": "1.0",
+                      "partitionKey": "1",
+                      "sequenceNumber": "49630081666084879290581185630324770398608704880802529282",
+                      "data": "ewogICAgICAgICJyaWRlIjogewogICAgICAgICAgICAiUFVMb2NhdGlvbklEIjogMTMwLAogICAgICAgICAgICAiRE9Mb2NhdGlvbklEIjogMjA1LAogICAgICAgICAgICAidHJpcF9kaXN0YW5jZSI6IDMuNjYKICAgICAgICB9LCAKICAgICAgICAicmlkZV9pZCI6IDI1NgogICAgfQ==",
+                      "approximateArrivalTimestamp": 1654161514.132
+                  },
+                  "eventSource": "aws:kinesis",
+                  "eventVersion": "1.0",
+                  "eventID": "shardId-000000000000:49630081666084879290581185630324770398608704880802529282",
+                  "eventName": "aws:kinesis:record",
+                  "invokeIdentityArn": "arn:aws:iam::XXXXXXXXX:role/lambda-kinesis-role",
+                  "awsRegion": "eu-west-1",
+                  "eventSourceARN": "arn:aws:kinesis:eu-west-1:XXXXXXXXX:stream/ride_events"
+              }
+          ]
+      }
+      ```
+13. We want to extract the 'data' and decode so that we will get the humanreadable data
+14. Then, we use the kinesis.put_record to set up the kinesis using kinesis client (we will add the it in the environment variable)
+15. Add the policy 'put_records'
+16. We tryin to listen to the new stream by using shard iterator
+    ```bash
+      KINESIS_STREAM_OUTPUT='ride_predictions'
+      SHARD='shardId-000000000000'
+      
+      SHARD_ITERATOR=$(aws kinesis \
+          get-shard-iterator \
+              --shard-id ${SHARD} \
+              --shard-iterator-type TRIM_HORIZON \
+              --stream-name ${KINESIS_STREAM_OUTPUT} \
+              --query 'ShardIterator' \
+      )
+      
+      RESULT=$(aws kinesis get-records --shard-iterator $SHARD_ITERATOR)
+      
+      echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode
+      ``` 
+18. Then, we make the new python file (lambda_function.py) and package all the lambda function in it.
+19. Also, we set up the dockerFile so we can run it in our virtual environment
 
 ## 6.Model monitoring
 
