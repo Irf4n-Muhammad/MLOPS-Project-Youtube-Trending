@@ -292,8 +292,53 @@ Streaming will send the real-time data that can be extracted at the same time, s
       
       echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode
       ``` 
-18. Then, we make the new python file (lambda_function.py) and package all the lambda function in it.
-19. Also, we set up the dockerFile so we can run it in our virtual environment
+18. Run the test
+    ```bash
+      export PREDICTIONS_STREAM_NAME="ride_predictions"
+      export RUN_ID="e1efc53e9bd149078b0c12aeaa6365df"
+      export TEST_RUN="True"
+      
+      python test.py
+      ```
+19. Then, we make the new python file (lambda_function.py) and package all the lambda function in it.
+20. Also, we set up the dockerFile so we can run it in our virtual environment
+    
+    ```bash
+      docker run -it --rm \
+          -p 8080:8080 \
+          -e PREDICTIONS_STREAM_NAME="ride_predictions" \
+          -e RUN_ID="e1efc53e9bd149078b0c12aeaa6365df" \
+          -e TEST_RUN="True" \
+          -v c:/Users/alexe/.aws:/root/.aws \
+          stream-model-duration:v1
+      ```
+22. Afterwards, we use the ECR to run the image in AWS
+
+    Creating an ECR repo
+    ```bash
+      aws ecr create-repository --repository-name duration-model
+      ```
+
+    Logging in
+    ```bash
+      $(aws ecr get-login --no-include-email)
+      ```
+23. We run the remote image command in the terminal and it will take a time to download and send the model from our AWS S3
+    
+    ```bash
+      REMOTE_URI="387546586013.dkr.ecr.eu-west-1.amazonaws.com/duration-model"
+      REMOTE_TAG="v1"
+      REMOTE_IMAGE=${REMOTE_URI}:${REMOTE_TAG}
+      
+      LOCAL_IMAGE="stream-model-duration:v1"
+      docker tag ${LOCAL_IMAGE} ${REMOTE_IMAGE}
+      docker push ${REMOTE_IMAGE}
+      ```
+24. Then, we create the function and delete the last function (to avoid the lambda will deploy both function)
+25. Add environment variable (PREDICTIONS_STREAM_NAME and RUN_ID)
+26. Then, we create the policy for our s3 as services, so we will set all list and read permission. Prepare the s3 bucket's name to be set up on our policy
+27. Gives more time for processing so we will increase the droptime (3 second at first)
+28. Use the shard iterator again to specifies the position which start reading the stream
 
 ## 6.Model monitoring
 
