@@ -442,4 +442,28 @@ So in this test we will try to use the docker-compose to running the test and ch
    pipenv run python test_docker.py
    ```
     
+### 8.6 CI/CD Pipeline
+So in this case we will use GitHub to execute the CI/CD pipeline. If you wonder what the pipeline looks like, you can scroll up to the early page and you will find the pipeline image.
+
+### 8.6.1 Continuous Integration Workflow
+- Automate sections from tests: Env setup, Unit test, Integration test, Terraform plan
+- Create a CI workflow to trigger on pull-request to develop branch
+- Execute demo
+
+1. Create the ci-tests.yaml to make the sequence of the pipeline
+2. Write all the pipeline like with the format like terraform
+3. Create prod.tfvars to store our variable for the pipeline
+4. Know we try to push the origin into the github
+5. Type this to commit
+   ```bash
+   git add .
+   git commit -m "CI/CD pipeline commit"
+   git push origin <branch>
+   ```
+6. Open the github setting and put the credentials for AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+7. Create the pull request
+8. Check the action and open test in the ci-test.yaml
+9. If it succeed then you did it
+
+### 8.6.2 Continuous Deployment
 
