@@ -388,14 +388,27 @@ So we gonna test our function in running model file by using the pytest and we w
 2. Create the tests folder and create model_test.py as our test file that link to the model.py
 3. Now, set the terminal to prepare the pytest
 4. Download the pipenv shell
-5. Type PS1="> "
-6. Type which pytest
-7. CLick CTRL P + Shift
-8. Select python interpreter, click unit test and click tests folder
-9. Now, on the model.py, write all function that need for our machine learning
-10. On the model_test type all the function and the variable as our test model
-11. If we use lambda in our workflow, the create lambda_function to test the lambda
-12. Create the Dockerfile
+   
+    ```bash
+    pipenv shell
+    ```
+6. Type PS1="> "
+   
+    ```bash
+    PS1="> "
+    ```
+7. Type which pytest
+   
+   ```bash
+    which pytest
+    ```
+8. CLick CTRL P + Shift
+9. Select python interpreter, click unit test and click tests folder
+10. Now, on the model.py, write all function that need for our machine learning
+11. On the model_test type all the function and the variable as our test model
+12. If we use lambda in our workflow, the create lambda_function to test the lambda
+13. Create the Dockerfile
+    
     ```bash
     docker build -t stream-model-duration:v2 .
     ```
