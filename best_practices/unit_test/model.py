@@ -27,8 +27,8 @@ def load_model(run_id):
 
 def base64_decode(encoded_data):
     decoded_data = base64.b64decode(encoded_data).decode('utf-8')
-    ride_event = json.loads(decoded_data)
-    return ride_event
+    Trending_event = json.loads(decoded_data)
+    return Trending_event
 
 
 class ModelService:
@@ -37,11 +37,11 @@ class ModelService:
         self.model_version = model_version
         self.callbacks = callbacks or []
 
-    def prepare_features(self, ride):
+    def prepare_features(self, Trending):
         features = {}
-        features['Licensed'] = ride['Licensed']
-        features['Views'] = ride['Views']
-        features['Likes'] = ride['Likes']
+        features['Licensed'] = Trending['Licensed']
+        features['Views'] = Trending['Views']
+        features['Likes'] = Trending['Likes']
         
         return features
 
@@ -56,19 +56,19 @@ class ModelService:
 
     #     for record in event['Records']:
     #         encoded_data = record['kinesis']['data']
-    #         ride_event = base64_decode(encoded_data)
+    #         Trending_event = base64_decode(encoded_data)
 
-    #         # print(ride_event)
-    #         ride = ride_event['ride']
-    #         ride_id = ride_event['ride_id']
+    #         # print(Trending_event)
+    #         Trending = Trending_event[Trending']
+    #         Trending_id = Trending_event['Trending_id']
 
-    #         features = self.prepare_features(ride)
+    #         features = self.prepare_features(Trending)
     #         prediction = self.predict(features)
 
     #         prediction_event = {
-    #             'model': 'ride_duration_prediction_model',
+    #             'model': 'trending_duration_prediction_model',
     #             'version': self.model_version,
-    #             'prediction': {'ride_duration': prediction, 'ride_id': ride_id},
+    #             'prediction': {'ride_duration': prediction, 'Trending_id': Trending_id},
     #         }
 
     #         for callback in self.callbacks:
@@ -85,12 +85,12 @@ class ModelService:
 #         self.prediction_stream_name = prediction_stream_name
 
 #     def put_record(self, prediction_event):
-#         ride_id = prediction_event['prediction']['ride_id']
+#         Trending_id = prediction_event['prediction']['Trending_id']
 
 #         self.kinesis_client.put_record(
 #             StreamName=self.prediction_stream_name,
 #             Data=json.dumps(prediction_event),
-#             PartitionKey=str(ride_id),
+#             PartitionKey=str(Trending_id),
 #         )
 
 

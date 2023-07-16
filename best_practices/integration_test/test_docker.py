@@ -18,10 +18,10 @@ print(json.dumps(actual_response, indent=2))
 expected_response = {
     'predictions': [
         {
-            'model': 'Trending_duration_prediction_model',
+            'model': 'ride_duration_prediction_model',
             'version': 'Test123',
             'prediction': {
-                'Trending_duration': 21.3,
+                'ride_duration': 21.3,
                 'ride_id': 256,
             },
         }
