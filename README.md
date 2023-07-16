@@ -418,5 +418,28 @@ So we gonna test our function in running model file by using the pytest and we w
     ```bash
     pipenv run pytests tests/
     ```
+
+### 8.2 Integration Test:
+So in this test we will try to use the docker-compose to running the test and check for the quality of our model
+
+1. Prepare the test_docker.py
+2. Put the expected response on that file to be comparing with the actual response from event kinesis records
+3. We will use assert to compare both result
+4. Now create the docker-compose.yaml to set up the environment, so we will activate all of that using docker-compose command
+5. Also, we create the run.sh to put everything about the response of our test
+6. To activate the test first run the docker compose
+   
+   ```bash
+   docker-compose up
+   ```
+7. Acitvate the run.sh afterward in the same terminal or test_docker.py to check the docker activation using different terminal
+   
+   ```bash
+   ./run.sh
+   ```
+
+   ```bash
+   pipenv run python test_docker.py
+   ```
     
 
