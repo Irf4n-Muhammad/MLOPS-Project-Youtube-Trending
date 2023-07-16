@@ -384,3 +384,18 @@ We can also generate the JSON file data and retrieve the needed information by a
 ### 8.1 Unit Tests
 So we gonna test our function in running model file by using the pytest and we will see if the result is as expected
 
+1. Set up the model.py to store our function for machine learning model to predict our case
+2. Create the tests folder and create model_test.py as our test file that link to the model.py
+3. Now, set the terminal to prepare the pytest
+4. Download the pipenv shell
+5. Type PS1="> "
+6. Type which pytest
+7. CLick CTRL P + Shift
+8. selet python interpreter, click unit test and click tests folder
+9. Now, on the model.py, write all function that need for our machine learning
+10. On the model_test type all the function and the variable as our test model
+11. If we use lambda in our workflow, the create lambda_function to test the lambda
+12. Create the Dockerfile
+13. Write the test_docker to test the activeness of our Dockerfile
+    
+
