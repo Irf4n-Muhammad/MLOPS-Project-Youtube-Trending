@@ -91,16 +91,18 @@ For this project, we will use AWS Cloud to integrate our model for storing and t
 ### 3.1 Mlflow (Experiment Tracking):
 1. Create conda that is specifically for mlflow
 2. Running the mlflow ui command :
+   
    ```bash
    mlflow ui --backend-store-uri 'db_type:///path_to_db'
    ```
-3. Copy the localhost link
+4. Copy the localhost link
+   
    ```bash
    localhost:5000
    ```
-4. Open the new terminal and run jupyter notebook on the mlflow conda
-5. In the [youtube-trending-prediction.ipynb](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/experiment_tracking/youtube-trending-prediction.ipynb) has explained everything about how it works and connect to the Mlflow
-6. In the Mlflow, we can see the metrics, log, artifact and diagram of our result
+5. Open the new terminal and run jupyter notebook on the mlflow conda
+6. In the [youtube-trending-prediction.ipynb](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/experiment_tracking/youtube-trending-prediction.ipynb) has explained everything about how it works and connect to the Mlflow
+7. In the Mlflow, we can see the metrics, log, artifact and diagram of our result
 
 ### 3.2 Model Registry:
 1. We can control and manage our model in certain conditions (Staging, Production, and Archive)
@@ -111,38 +113,45 @@ For this project, we will use AWS Cloud to integrate our model for storing and t
 In this section, we will use Prefect as our orchestration tool. We will deploy and run our model in Prefect.
 
 1. Script the file from jupyter notebook
+   
    ```bash
    jupyter nbconvert --to script <name.ipynb>
    ```
 3. Create the anaconda for prefect
+   
    ```bash
    conda create -n <name> bash
    conda activate <name>
    ```
-4. Run the prefect server
+5. Run the prefect server
+   
    ```bash
    prefect server start
    ```
    Copy the localhost link
+
    ```bash
    localhost:8080
    ```
-5. Initiliaze the prefect project
+6. Initiliaze the prefect project
+   
    ```bash
    prefect project init
    ```
    It will generate the file ([deployment.yaml](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/workflow_orchestration/deployment.yaml) and [prefect.yaml](https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/workflow_orchestration/prefect.yaml))
-6. Create workpool in the Prefect UI
-7. Deploy the model into the Prefect
+7. Create workpool in the Prefect UI
+8. Deploy the model into the Prefect
+   
    ```bash
    prefect deploy <path to the model>:main_flow -n <model_name> -p <workpool_name>
    ```
-8. Running the worker network
+9. Running the worker network
+   
    ```bash
    prefect worker start
    ```
-9. Open the Prefect UI and find the flows. Click quick run
-10. You will see the data generated in our terminal
+10. Open the Prefect UI and find the flows. Click quick run
+11. You will see the data generated in our terminal
     
     <img width="814" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/e252d515-d6a8-4fbe-b5ea-8c16a946a675">
 
@@ -166,6 +175,7 @@ model = mlflow.pyfunc.load_model(logged_model)
 ```
 
 4. Some function that we will use to run our model which we can edit and will not affect the current model
+   
 ```python
 def prepare_features(ride):
     features = {}
@@ -182,6 +192,7 @@ def predict(features):
     return pred_value if pred_value > 1 else 1
 ```
 5. The main function to arrange the sequence of used function
+   
 ```python
 app = Flask('trending-prediction')
 
@@ -200,17 +211,20 @@ def predict_endpoint():
     return jsonify(result)
 ```
 6. Connect to the port:
+   
 ```python
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=9696)
 ```
 7. Running the server
+   
 ```bash
 pipenv shell
 export RUN_ID=<Your ID>
 python predict.py
 ```
 8. Run the result in the different terminal
+   
 ```bash
 python test.py
 ```
@@ -226,6 +240,7 @@ Streaming will send the real-time data that can be extracted at the same time, s
 7. Create the data stream, so we can run it on the terminal
 8. Create trigger near to kinesis and choose kinesis as our trigger configuration
 9. AFter the trigger is enabled, then we can run this command in the terminal:
+    
     ```bash
     KINESIS_STREAM_INPUT=trending_events
       aws kinesis put-record \
@@ -233,8 +248,8 @@ Streaming will send the real-time data that can be extracted at the same time, s
     --partition-key 1 \
     --data "Hello, this is a test."
     ```
-10.  Then, we can check the log cloudwatch configuration to see the streaming data
-11.  We develop it again and we can add this command in the terminal
+11.  Then, we can check the log cloudwatch configuration to see the streaming data
+12.  We develop it again and we can add this command in the terminal
     
     ```bash
     aws kinesis put-record \
@@ -250,6 +265,7 @@ Streaming will send the real-time data that can be extracted at the same time, s
     }'
     ```
 12. If we open the cloudwatch, we will find the records of our streaming data in json form
+    
     ```json
       {
           "Records": [
@@ -272,10 +288,11 @@ Streaming will send the real-time data that can be extracted at the same time, s
           ]
       }
       ```
-13. We want to extract the 'data' and decode so that we will get the humanreadable data
-14. Then, we use the kinesis.put_record to set up the kinesis using kinesis client (we will add the it in the environment variable)
-15. Add the policy 'put_records'
-16. We tryin to listen to the new stream by using shard iterator
+14. We want to extract the 'data' and decode so that we will get the humanreadable data
+15. Then, we use the kinesis.put_record to set up the kinesis using kinesis client (we will add the it in the environment variable)
+16. Add the policy 'put_records'
+17. We tryin to listen to the new stream by using shard iterator
+    
     ```bash
       KINESIS_STREAM_OUTPUT='ride_predictions'
       SHARD='shardId-000000000000'
@@ -293,6 +310,7 @@ Streaming will send the real-time data that can be extracted at the same time, s
       echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode
       ``` 
 18. Run the test
+    
     ```bash
       export PREDICTIONS_STREAM_NAME="ride_predictions"
       export RUN_ID="e1efc53e9bd149078b0c12aeaa6365df"
@@ -300,8 +318,8 @@ Streaming will send the real-time data that can be extracted at the same time, s
       
       python test.py
       ```
-19. Then, we make the new python file (lambda_function.py) and package all the lambda function in it.
-20. Also, we set up the dockerFile so we can run it in our virtual environment
+20. Then, we make the new python file (lambda_function.py) and package all the lambda function in it.
+21. Also, we set up the dockerFile so we can run it in our virtual environment
     
     ```bash
       docker run -it --rm \
@@ -315,15 +333,17 @@ Streaming will send the real-time data that can be extracted at the same time, s
 22. Afterwards, we use the ECR to run the image in AWS
 
     Creating an ECR repo
+    
     ```bash
       aws ecr create-repository --repository-name duration-model
       ```
 
     Logging in
+    
     ```bash
       $(aws ecr get-login --no-include-email)
       ```
-23. We run the remote image command in the terminal and it will take a time to download and send the model from our AWS S3
+24. We run the remote image command in the terminal and it will take a time to download and send the model from our AWS S3
     
     ```bash
       REMOTE_URI="387546586013.dkr.ecr.eu-west-1.amazonaws.com/duration-model"
@@ -334,11 +354,11 @@ Streaming will send the real-time data that can be extracted at the same time, s
       docker tag ${LOCAL_IMAGE} ${REMOTE_IMAGE}
       docker push ${REMOTE_IMAGE}
       ```
-24. Then, we create the function and delete the last function (to avoid the lambda will deploy both function)
-25. Add environment variable (PREDICTIONS_STREAM_NAME and RUN_ID)
-26. Then, we create the policy for our s3 as services, so we will set all list and read permission. Prepare the s3 bucket's name to be set up on our policy
-27. Gives more time for processing so we will increase the droptime (3 second at first)
-28. Use the shard iterator again to specifies the position which start reading the stream
+25. Then, we create the function and delete the last function (to avoid the lambda will deploy both function)
+26. Add environment variable (PREDICTIONS_STREAM_NAME and RUN_ID)
+27. Then, we create the policy for our s3 as services, so we will set all list and read permission. Prepare the s3 bucket's name to be set up on our policy
+28. Gives more time for processing so we will increase the droptime (3 second at first)
+29. Use the shard iterator again to specifies the position which start reading the stream
 
 ## 6.Model monitoring
 
@@ -454,16 +474,39 @@ So in this case we will use GitHub to execute the CI/CD pipeline. If you wonder 
 2. Write all the pipeline like with the format like terraform
 3. Create prod.tfvars to store our variable for the pipeline
 4. Know we try to push the origin into the github
-5. Type this to commit
+5. Type this to commit:
+   
    ```bash
    git add .
    git commit -m "CI/CD pipeline commit"
    git push origin <branch>
    ```
-6. Open the github setting and put the credentials for AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-7. Create the pull request
-8. Check the action and open test in the ci-test.yaml
-9. If it succeed then you did it
+7. Open the github setting and put the credentials for AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+8. Create the pull request
+9. Check the action and open test in the ci-test.yaml
+10. If it succeed then you did it
 
 ### 8.6.2 Continuous Deployment
+- Automate sections from tests: Terraform plan, Terraform apply, Docker build & ECR push, Update Lambda config
+- Create a CD workflow to trigger on push to develop branch
+- Execute demo
+
+1. Firstly, we create the ci-deploy file similar like ci-tests.yaml
+2. Also, we set up the main.tf in terraform format
+3. Create the deploy_manual.sh to export the specific information
+4. Now, push the origin in github
+5. Type this to commit:
+   
+   ```bash
+   git add .
+   git commit -m "CI/CD pipeline commit"
+   git push origin <branch>
+   ```
+7. Open the github setting and put the credentials for AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+8. Create the pull request
+9. Check the action and open test in the ci-test.yaml
+10. If it succeed then you did it
+11. Open the AWS and check some AWS features to see if it has deployed. Check the AWS lmabda, S3, and Kinesis.
+12. Increase the timeout if it's needed.
+   
 
