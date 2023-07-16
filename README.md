@@ -379,6 +379,7 @@ In monitoring, we will check the quality of our model using several indicators. 
    localhost:3000
    ```
 7. Create the dummy quality test Python following the same idea as the previous one to create the visualization diagrams
+
 8. Make sure to save your Grafana dashboard so it will not disappear after you cut the connection off. 
 
 ### 6.2 Test Suites and Reports

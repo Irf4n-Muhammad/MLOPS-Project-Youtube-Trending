@@ -12,7 +12,7 @@ def get_model_location(run_id):
     if model_location is not None:
         return model_location
 
-    model_bucket = os.getenv('MODEL_BUCKET', 'mlflow-artifacts-remote-zoomcamp')
+    model_bucket = os.getenv('MODEL_BUCKET', 'mlflow-artifacts-mlops-zoomcamp')
     experiment_id = os.getenv('MLFLOW_EXPERIMENT_ID', '1')
 
     model_location = f's3://{model_bucket}/{experiment_id}/{run_id}/artifacts/model'
@@ -39,8 +39,10 @@ class ModelService:
 
     def prepare_features(self, ride):
         features = {}
-        features['PU_DO'] = f"{ride['PULocationID']}_{ride['DOLocationID']}"
-        features['trip_distance'] = ride['trip_distance']
+        features['Licensed'] = ride['Licensed']
+        features['Views'] = ride['Views']
+        features['Likes'] = ride['Likes']
+        
         return features
 
     def predict(self, features):
