@@ -391,11 +391,14 @@ So we gonna test our function in running model file by using the pytest and we w
 5. Type PS1="> "
 6. Type which pytest
 7. CLick CTRL P + Shift
-8. selet python interpreter, click unit test and click tests folder
+8. Select python interpreter, click unit test and click tests folder
 9. Now, on the model.py, write all function that need for our machine learning
 10. On the model_test type all the function and the variable as our test model
 11. If we use lambda in our workflow, the create lambda_function to test the lambda
 12. Create the Dockerfile
-13. Write the test_docker to test the activeness of our Dockerfile
+    ```bash
+    docker build -t stream-model-duration:v2 .
+    ```
+14. Write the test_docker to test the activeness of our Dockerfile
     
 
