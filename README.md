@@ -381,10 +381,10 @@ In monitoring, we will check the quality of our model using several indicators. 
 7. Create the dummy quality test Python following the same idea as the previous one to create the visualization diagrams
    
    #### Dummy Metrics:
-   <img width="458" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/a8c729f1-5fc5-436c-bdad-23ff12f27505">
+   <img width="500" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/a8c729f1-5fc5-436c-bdad-23ff12f27505">
 
    #### Dummy Values:
-   <img width="448" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/f95d8b47-80b8-48e9-90cd-b56024b3a940">
+   <img width="500" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/f95d8b47-80b8-48e9-90cd-b56024b3a940">
 
    Note: In this case, I am using histogram and not time series because my data doesn't has time series column which I can't produce the time series table.
 
