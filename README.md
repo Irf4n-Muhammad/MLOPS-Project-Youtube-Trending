@@ -413,5 +413,10 @@ So we gonna test our function in running model file by using the pytest and we w
     docker build -t stream-model-duration:v2 .
     ```
 14. Write the test_docker to test the activeness of our Dockerfile
+15. Now you can run the test for all function using tests
+
+    ```bash
+    pipenv run pytests tests/
+    ```
     
 
