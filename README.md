@@ -396,9 +396,9 @@ We can also generate the JSON file data and retrieve the needed information by a
 
 - [x] There are unit tests (1 point)
 - [x] There is an integration test (1 point)
-- [x] Linter and/or code formatter are used (1 point)
-- [x] There's a Makefile (1 point)
-- [x] There are pre-commit hooks (1 point)
+- [ ] Linter and/or code formatter are used (1 point)
+- [ ] There's a Makefile (1 point)
+- [ ] There are pre-commit hooks (1 point)
 - [x] There's a CI/CD pipeline (2 points)
 
 ### 8.1 Unit Tests
