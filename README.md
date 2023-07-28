@@ -7,7 +7,7 @@ In this advanced machine learning model, we intend to examine two principal fact
 
 We hypothesize that licensed content may generate a wider audience, which in turn, influences the trending status of the content. However, it is important to note that these factors are just a fraction of a larger set of parameters that could impact a content's trendiness. These other factors might include content quality, content type, and publication time, among others. Nevertheless, for the scope of this project, our primary focus is to build a sustainable machine learning model, and hence, we are limiting our study to these two factors.
 
-<img src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/f135a391-46fb-45a6-bc10-368d4f87b07b" alt="your image description" width="500" height="300">
+<img src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/youtubeLogo.png" alt="your image description" width="500" height="300">
 
 It is imperative to highlight the need for regular maintenance and testing of this machine learning model. This is crucial to ensure its robustness and reliability, especially given that user behavior and consumption patterns on platforms like YouTube and Spotify are dynamic and can change rapidly. Regular monitoring and testing will allow us to identify any anomalies, adapt to pattern shifts, and ensure that the predictive model remains reliable and trustworthy.
 
