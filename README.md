@@ -59,20 +59,20 @@ For this project, we will use AWS Cloud to integrate our model for storing and t
 7. Leave the instance configuration, Storage, and Connectivity if you just need free tier
 8. Click additional configuration to make the database:
    
-   <img width="566" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/eb5efac0-9cc4-4762-83a2-382ba2ad9c98">
+   <img width="566" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/cloud/cloud1.png">
 10. Create the database and it is ready
 11. View the credentials setting, so you will find the master username and password. Please copy that:
     
-    <img width="913" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/476ae47a-bf59-4c3c-b02a-67573718cbc5">
+    <img width="913" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/cloud/cloud2.png">
 13. Go to the security section:
     
-    <img width="183" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/1a61a9df-ebc8-494f-b5ee-ebe6703b405e">
+    <img width="183" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/cloud/cloud3.png">
 15. Edit the inbound rules:
     
-    <img width="707" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/da8da7fa-7767-4469-97af-65e005fe4415">
+    <img width="707" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/cloud/cloud4.png">
 17. Set the inbound rules:
     
-    <img width="845" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/b8789f57-4b5f-4325-b592-b85c0fbda9ce">
+    <img width="845" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/cloud/cloud5.png">
 
 19. Your database is ready
 
@@ -153,7 +153,7 @@ In this section, we will use Prefect as our orchestration tool. We will deploy a
 10. Open the Prefect UI and find the flows. Click quick run
 11. You will see the data generated in our terminal
     
-    <img width="814" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/e252d515-d6a8-4fbe-b5ea-8c16a946a675">
+    <img width="814" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/workflow_orchestration/workflow1.png">
 
 
 ## 5. Model deployment
@@ -381,10 +381,10 @@ In monitoring, we will check the quality of our model using several indicators. 
 7. Create the dummy quality test Python following the same idea as the previous one to create the visualization diagrams
    
    #### Dummy Metrics:
-   <img width="500" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/a8c729f1-5fc5-436c-bdad-23ff12f27505">
+   <img width="500" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/model_monitoring/modelMonitoring1.png">
 
    #### Dummy Values:
-   <img width="500" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/f95d8b47-80b8-48e9-90cd-b56024b3a940">
+   <img width="500" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/model_monitoring/modelMonitoring2.png">
 
    Note: In this case, I am using histogram and not time series because my data doesn't has time series column which I can't produce the time series table.
 
@@ -394,11 +394,11 @@ In monitoring, we will check the quality of our model using several indicators. 
 ### 6.2 Test Suites and Reports
 This method will show us the report in the comfy model which we can read it clearly and neatly. You can easily check several indicator that will assess the quality of our model.
 
-<img width="819" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/35d4ad1b-0f19-440a-950e-fe4a389287f7">
+<img width="819" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/best_practices/test1.png">
 
 We can also generate the JSON file data and retrieve the needed information by aiming for the right location in JSON file.
 
-<img width="828" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/assets/121205860/a1ad86ef-9eb0-4519-8cba-6985c8051c2b">
+<img width="828" alt="image" src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/best_practices/test2.png">
 
 
 
