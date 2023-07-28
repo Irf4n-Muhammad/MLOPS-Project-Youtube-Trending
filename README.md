@@ -19,7 +19,7 @@ https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube
 
 Pipeline flow:
 
-
+<img src="https://github.com/Irf4n-Muhammad/MLOPS-Project-Youtube-Trending/blob/main/images/cicd.png" alt="your image description" width="800" height="600">
 
 
 
