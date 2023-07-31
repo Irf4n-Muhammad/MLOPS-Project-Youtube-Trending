@@ -1,4 +1,4 @@
-# MLOPS Project / Youtube Spotify Trending git
+# MLOPS Project / Youtube Spotify Trending
 
 ## 1. Problem description
 YouTube and Spotify have been recognized as the most frequently visited platforms globally, serving as primary channels through which individuals not only amass wealth but also cultivate widespread fame. A "trending" status on these platforms is often viewed as the pinnacle of achievement for content creators, indicating that their content has gained significant popularity within a certain time frame. To achieve this status, it is crucial to understand the variables that can influence this outcome. This understanding can subsequently guide a systematic plan for trending.
